@@ -2,7 +2,7 @@ package clam.io.gui;
 
 import javax.swing.JTabbedPane;
 
-import clam.io.capture.ScreenCapture;
+import clam.io.ScreenCapture;
 import clam.io.gui.panels.FileSelectionPanel;
 import clam.io.gui.panels.PreviewPanel;
 import clam.io.gui.panels.RecordingControlPanel;
@@ -18,6 +18,12 @@ public class ScreenCaptureGUI extends JTabbedPane {
 	public Database database = Database.load("capture.db");	
 	public ScreenCaptureGUI () throws Exception {
 		new ScreenCapture ("recording.mp4").capture();
+		
+		this.addTab("Recording", recordingControl);
+		this.addTab("File Selection", recordingControl);
+		this.addTab("Preview", recordingControl);
+		this.addTab("Video Settings", recordingControl);
+		
 	}
 }
 
